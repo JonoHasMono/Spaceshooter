@@ -24,6 +24,8 @@ chooseText.style.top = '5%';
 chooseText.style.left = '50%';
 chooseText.innerHTML = 'Choose your character';
 
+let chosenCharacter = "";
+
 let jono = new Object();
 jono.health = 5;
 jono.damage = 1;
@@ -36,9 +38,11 @@ let sdown = false;
 let ddown = false;
 
 //! All messages from the first scene
+let sceneMsg1 = "";
+let sceneMsg2 = "";
 let messageCreated = false;
-let s1m1 = "Sometimes, when I'm home alone for the day, I'll turn off all the lights in my room and cry for several hours."
-let s1m2 = "Am I proud of this? No, not really. Am I going to do anything about it? Of course not, goofball."
+let s1m1j = "Ayo, I think you took a wrong turn at the Anime Convention, homie."
+let s1m2j = "Are you insulting my costume? Not very poggers."
 
 function startGame() {
     if(startButtonClicked == false) {
@@ -61,8 +65,8 @@ function startGame() {
             bodyvar.appendChild(chooseText);
             bodyvar.appendChild(characterBG);
             document.addEventListener('mousemove', function(e) {
-                characterBG.style.left = (1440 - (1440 / 1.9325)) + (e.pageX / 32) + 'px';
-                characterBG.style.top = (788 - (788 / 1.9325)) + (e.pageY / 32) + 'px';
+                characterBG.style.left = ((window.innerWidth) - ((window.innerWidth) / 1.9325)) + (e.pageX / 32) + 'px';
+                characterBG.style.top = ((window.innerHeight) - ((window.innerHeight) / 1.9325)) + (e.pageY / 32) + 'px';
             })
         }, 350);
         function chooseYourCard() {
@@ -93,12 +97,17 @@ function startGame() {
             player.style.left = '10%';
             player.style.top = '50%';
             bodyvar.appendChild(player);
+            chosenCharacter = x;
             setTimeout(() => {
                 startSceneOne();
             }, 2000);
         }
 
         function startSceneOne() {
+            if(chosenCharacter == 'jono') {
+                sceneMsg1 = s1m1j
+                sceneMsg2 = s1m2j;
+            }
             let messageBG = document.createElement('div');
             messageBG.classList.add('messageBG');
             bodyvar.appendChild(messageBG);
@@ -123,15 +132,13 @@ function startGame() {
                     }
 
             let currentMsgValue = 1;
-            let sceneMsg1 = s1m1;
-            let sceneMsg2 = s1m2;
             setTimeout(() => {
                 createMessage(sceneMsg1);
             }, 200);
                 function createMessage(x) {
                     let i = 0;
                     let text = x;
-                    let speed = 25;
+                    let speed = 35;
                     console.log(x);
                     textMessage.innerHTML = "";
                     typewriter();
@@ -139,7 +146,6 @@ function startGame() {
                     function typewriter() {
                         if (i < text.length) {
                           textMessage.innerHTML += text.charAt(i);
-                          //console.log(textMessage.innerHTML);
                           i++;
                           setTimeout(typewriter, speed);
                         }
