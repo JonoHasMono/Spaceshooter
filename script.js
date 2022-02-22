@@ -38,6 +38,7 @@ let sdown = false;
 let ddown = false;
 
 //! All messages from the first scene
+let sceneCharIcon = document.createElement('div');
 let sceneMsg1 = "";
 let sceneMsg2 = "";
 let messageCreated = false;
@@ -105,7 +106,7 @@ function startGame() {
 
         function startSceneOne() {
             if(chosenCharacter == 'jono') {
-                sceneMsg1 = s1m1j
+                sceneMsg1 = s1m1j;
                 sceneMsg2 = s1m2j;
             }
             let messageBG = document.createElement('div');
@@ -122,6 +123,8 @@ function startGame() {
                         createNextMessage();
                     });
                     bodyvar.appendChild(nextMessage);
+
+            
 
                     function createNextMessage() {
                         currentMsgValue++
