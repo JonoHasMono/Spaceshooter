@@ -144,7 +144,7 @@ function startGame() {
             bodyvar.appendChild(charaCardName);
             bodyvar.appendChild(charaCardDesc);
             setCCName(jCardPos);
-            //bodyvar.appendChild(characterBG);
+            // bodyvar.appendChild(characterBG);
             //document.addEventListener('mousemove', function(e) {
             //    characterBG.style.left = ((window.innerWidth) - ((window.innerWidth) / 1.9325)) + (e.pageX / 32) + 'px';
             //    characterBG.style.top = ((window.innerHeight) - ((window.innerHeight) / 1.9325)) + (e.pageY / 32) + 'px';
