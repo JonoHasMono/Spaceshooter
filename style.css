@@ -8,10 +8,10 @@ body {
     position:absolute;
     text-align: center;
     transform:translate(-50%,-50%);
-    top:50%;
+    top:80%;
     left:50%;
     padding:1% 2% 1% 2%;
-    background-color: black;
+    background-color: rgb(50,80,60);
     color: rgb(0,100,255);
     -webkit-text-stroke: 0.5vw rgb(0,255,50);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -33,20 +33,20 @@ body {
 @keyframes starthover {
     0% {
         font-size: 8.5vw;
-        background-color: black;
+        background-color: rgb(50,80,60);
         color: rgb(0,255,50);
         -webkit-text-stroke: 0.5vw rgb(0,255,50);
-        box-shadow: 0vw 0vw 1vw black;
+        box-shadow: 0vw 0vw 1vw rgb(50,80,60);
         text-shadow: 0vw 0vw 2vw rgb(0,255,50);
     }
 
     100% {
         font-size: 9.5vw;
         background-color: rgb(0,255,50);
-        color: black;
-        -webkit-text-stroke: 0.5vw black;
+        color: rgb(50,80,60);
+        -webkit-text-stroke: 0.5vw rgb(50,80,60);
         box-shadow: 0vw 0vw 2vw rgb(0,255,50);
-        text-shadow: 0vw 0vw 1vw black;
+        text-shadow: 0vw 0vw 1vw rgb(50,80,60);
     }
 }
 
@@ -54,17 +54,17 @@ body {
     0% {
         font-size: 9.5vw;
         background-color: rgb(0,255,50);
-        color: black;
-        -webkit-text-stroke: 0.5vw black;
+        color: rgb(50,80,60);
+        -webkit-text-stroke: 0.5vw rgb(50,80,60);
         box-shadow: 0vw 0vw 2vw rgb(0,255,50);
-        text-shadow: 0vw 0vw 1vw black;
+        text-shadow: 0vw 0vw 1vw rgb(50,80,60);
     }
     100% {
         font-size: 8.5vw;
-        background-color: black;
+        background-color: rgb(50,80,60);
         color: rgb(0,255,50);
         -webkit-text-stroke: 0.5vw rgb(0,255,50);
-        box-shadow: 0vw 0vw 1vw black;
+        box-shadow: 0vw 0vw 1vw rgb(50,80,60);
         text-shadow: 0vw 0vw 2vw rgb(0,255,50);
     }
 }
@@ -107,7 +107,7 @@ body {
     transform:translate(-50%,-50%);
     width: 135%;
     height: 135%;
-    background-color: white;
+    background-color: black;
     animation: transitionAnim 1.5s ease 1;
     animation-fill-mode: forwards;
     left: 50%;
@@ -144,44 +144,163 @@ body {
     }
 }
 
-.card {
+.charaCardName {
+    position: absolute;
+    transform: translate(-50%,-50%) rotate(0deg);
+    left: 50%;
+    top: 20%;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke: 0.15vw black;
+    font-size: 6vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.charaCardDesc {
+    position: absolute;
+    transform: translate(-50%,-50%) rotate(0deg) skew(0deg, 0deg);
+    left: 50%;
+    top: 85%;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke: 0.05vw white;
+    font-size: 2vw;
+    width: 85%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ccDescAnimclass {
+    animation: ccDescAnim 0.5s ease 1;
+    animation-fill-mode: forwards;
+    animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes ccDescAnim {
+    0% {
+        transform: translate(-50%,-50%) rotate(0deg) skew(-90deg, 0deg);
+    }
+    100% {
+        transform: translate(-50%,-50%) rotate(0deg) skew(0deg, 0deg);
+    }
+}
+
+.cardfront {
     position: absolute;
     top: 50%;
+    left: 50%;
     background-color: white;
     transform: translate(-50%,-50%);
     width: 20vw;
-    height: 40vw;
+    height: 20vw;
     z-index: 5;
-    animation: cardnohover 0.25s ease 1;
+    animation: cardmoveRF 0.5s ease 1;
     animation-fill-mode: forwards;
-    animation-timing-function:cubic-bezier(0.175, 1, 0, 1.4);
+    animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.card:hover {
+@keyframes cardmoveRF {
+    0% {
+        left: 70%;
+        width: 14vw;
+        height: 14vw;
+        z-index: 4;
+    }
+    100% {
+        left: 50%;
+        width: 20vw;
+        height: 20vw;
+        z-index: 5;
+    }
+}
+
+.cardfront:hover {
     cursor: pointer;
-    animation: cardhover 0.5s ease 1;
-    animation-fill-mode: forwards;
-    animation-timing-function:cubic-bezier(0.175, 1, 0, 1.4);
 }
 
-@keyframes cardhover {
+.cardleft {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    width: 14vw;
+    height: 14vw;
+    z-index: 4;
+    animation: cardmoveFL 0.5s ease 1;
+    animation-fill-mode: forwards;
+    animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes cardmoveFL {
     0% {
+        left: 50%;
         width: 20vw;
-        height: 40vw;
+        height: 20vw;
+        z-index: 5;
     }
     100% {
-        width: 22vw;
-        height: 44vw;
+        left: 30%;
+        width: 14vw;
+        height: 14vw;
+        z-index: 4;
     }
 }
-@keyframes cardnohover {
+
+.cardback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    width: 10vw;
+    height: 10vw;
+    z-index: 3;
+    animation: cardmoveLB 0.5s ease 1;
+    animation-fill-mode: forwards;
+    animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes cardmoveLB {
     0% {
-        width: 22vw;
-        height: 44vw;
+        left: 30%;
+        width: 14vw;
+        height: 14vw;
+        z-index: 4;
     }
     100% {
-        width: 20vw;
-        height: 40vw;
+        left: 50%;
+        width: 10vw;
+        height: 10vw;
+        z-index: 3;
+    }
+}
+
+.cardright {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    width: 14vw;
+    height: 14vw;
+    z-index: 4;
+    animation: cardmoveBR 0.5s ease 1;
+    animation-fill-mode: forwards;
+    animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes cardmoveBR {
+    0% {
+        left: 50%;
+        width: 10vw;
+        height: 10vw;
+        z-index: 3;
+    }
+    100% {
+        left: 70%;
+        width: 14vw;
+        height: 14vw;
+        z-index: 4;
     }
 }
 
@@ -206,10 +325,10 @@ body {
     font-size: 2.75vw;
     color: white;
     position: absolute;
-    left: 25%;
+    left: 30%;
     top: 75%;
     text-align: left;
-    width: 70%;
+    width: 65%;
     z-index: 25;
 }
 
@@ -253,8 +372,8 @@ body {
 
 .messageIcon {
     position: absolute;
-    left: -12.5%;
-    top: 25%;
+    left: -15%;
+    top: 27%;
     transform:translate(-50%,-50%);
     transform: scale(0.5,0.5) rotate(0deg);
     image-rendering: pixelated;
